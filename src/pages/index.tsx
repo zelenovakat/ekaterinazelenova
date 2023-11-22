@@ -76,10 +76,10 @@ export default function Home(props: HomeProps) {
             <a target="_blank" href="https://clvlab.com/">
               CLV LAB
             </a>{" "}
-            as a Frontend developer and{" "}
+            as a Frontend developer and
             <a target="_blank" href="https://www.umain.com/">
               UMAIN
-            </a>{" "}
+            </a>
             as a Web Developer.
           </Text>
         </Flex>
@@ -96,17 +96,6 @@ export default function Home(props: HomeProps) {
     </>
   )
 }
-
-// export async function getServerSideProps() {
-//   const { data } = await client.query({
-//     query: GET_BLOG_POSTS,
-//   })
-//   return {
-//     props: {
-//       blogPosts: data.blogPostCollection.items,
-//     },
-//   }
-// }
 
 export async function getServerSideProps() {
   try {
@@ -132,10 +121,4 @@ export async function getServerSideProps() {
       },
     }
   }
-}
-
-{
-  /* {blogPosts.map((blogPost) => {
-            <BlogPostTile key={blogPost.sys.id} blogPost={blogPost} />
-          })} */
 }

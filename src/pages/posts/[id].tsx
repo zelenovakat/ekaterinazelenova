@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Heading, Box } from "@chakra-ui/react"
 import { useRef } from "react"
+
 const GET_POST_BY_ID_QUERY = gql`
   query GetPostById($id: String!) {
     blogPost(id: $id) {
@@ -38,10 +39,6 @@ function PostPage(props: PostProps) {
   } = props
 
   const highlighterRef = useRef<SyntaxHighlighter>(null)
-
-  // const {
-  //   query: { id },
-  // } = useRouter()
 
   return (
     <DifaultLayout>
