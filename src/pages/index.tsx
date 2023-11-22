@@ -1,4 +1,3 @@
-import Image from "next/image"
 // import styles from "@/page.module.css"
 import Head from "next/head"
 import { Inter } from "next/font/google"
@@ -7,7 +6,6 @@ import DifaultLayout from "@/layout/DefaultLayout"
 import client from "../utils/apollo-client"
 import { gql } from "@apollo/client"
 import BlogPostTile from "@/components/BlogPostTile"
-const inter = Inter({ subsets: ["latin"] })
 
 export type BlogPost = {
   content: string
@@ -89,7 +87,7 @@ export default function Home(props: HomeProps) {
           marginTop="8"
           width="100%">
           {blogPosts.map((blogPost) => {
-            return <BlogPostTile key={blogPost?.sys?.id} blogPost={blogPost} />
+            return <BlogPostTile key={blogPost.sys.id} blogPost={blogPost} />
           })}
         </Grid>
       </DifaultLayout>
@@ -98,27 +96,13 @@ export default function Home(props: HomeProps) {
 }
 
 export async function getServerSideProps() {
-  try {
-    // Fetch data using Apollo Client
-    const { data } = await apolloClient.query({
-      query: GET_BLOG_POSTS,
-    })
+  const { data } = await apolloClient.query({
+    query: GET_BLOG_POSTS,
+  })
 
-    // Return the data as props
-    return {
-      props: {
-        blogPosts: data.blogPostCollection.items,
-      },
-    }
-  } catch (error) {
-    // Handle errors gracefully
-    console.error("Error fetching blog posts:", error)
-
-    // Return an empty array or handle errors as needed
-    return {
-      props: {
-        blogPosts: [],
-      },
-    }
+  return {
+    props: {
+      blogPosts: data?.blogPostCollection?.items || [],
+    },
   }
 }
