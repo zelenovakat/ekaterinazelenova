@@ -83,11 +83,6 @@ const ContactPage = (props: ContactPageProps) => {
             <Text>Message was send successfully</Text>
           </Box>
         )}
-        {!success && (
-          <Box color="black" marginBottom="4">
-            <Text>Chek correctness of the email address</Text>
-          </Box>
-        )}
       </Flex>
     </DifaultLayout>
   )
