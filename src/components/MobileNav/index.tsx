@@ -5,10 +5,8 @@ import {
   DrawerHeader,
   DrawerCloseButton,
   DrawerBody,
-  UnorderedList,
-  ListItem,
 } from "@chakra-ui/react"
-import NextLink from "next/link"
+import NavLinks from "../NavLinks"
 
 type MobileNavProps = {
   isOpen: boolean
@@ -23,25 +21,7 @@ const MobileNav = (props: MobileNavProps) => {
         <DrawerCloseButton />
         <DrawerHeader>
           <DrawerBody>
-            <UnorderedList
-              listStyleType="none"
-              margin="0"
-              width="100%"
-              fontSize="x-large"
-              lineHeight={2}>
-              <ListItem borderBottom="1px solid" borderColor="gray.100">
-                <NextLink href="/">Home</NextLink>
-              </ListItem>
-              <ListItem borderBottom="1px solid" borderColor="gray.700">
-                <NextLink href="/projects">Projects</NextLink>
-              </ListItem>
-              <ListItem borderBottom="1px solid" borderColor="gray.700">
-                <NextLink href="/about">About</NextLink>
-              </ListItem>
-              <ListItem>
-                <NextLink href="/contact">Contact</NextLink>
-              </ListItem>
-            </UnorderedList>
+            <NavLinks />
           </DrawerBody>
         </DrawerHeader>
       </DrawerContent>

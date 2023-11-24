@@ -20,7 +20,14 @@ const BlogPostTile = (props: BlogPostTileProps) => {
         position="relative"
         borderTopLeftRadius="5"
         borderTopRightRadius="5">
-        <Image src={mainImage?.url} fill alt={title} style={{ objectFit: "cover" }} />
+        <Image
+          src={mainImage?.url}
+          fill
+          alt={title}
+          style={{ objectFit: "cover" }}
+          priority={false}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </Flex>
 
       <Flex

@@ -31,8 +31,10 @@ const ProjectTile = (props: ProjectTileProps) => {
         <NextImage
           src={mainImage?.url}
           alt={title}
+          priority={false}
           fill
-          style={{ objectFit: "contain", objectPosition: "center center" }}
+          style={{ objectPosition: "center center" }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </Flex>
       <Flex direction="column" marginLeft="4">

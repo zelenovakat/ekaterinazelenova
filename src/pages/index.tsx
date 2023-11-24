@@ -1,11 +1,11 @@
 // import styles from "@/page.module.css"
 import Head from "next/head"
-import { Inter } from "next/font/google"
 import { Flex, Heading, Text, Grid } from "@chakra-ui/react"
 import DifaultLayout from "@/layout/DefaultLayout"
 import client from "../utils/apollo-client"
 import { gql } from "@apollo/client"
 import BlogPostTile from "@/components/BlogPostTile"
+import { mainText } from "@/components/string"
 
 export type BlogPost = {
   content: string
@@ -64,13 +64,7 @@ export default function Home(props: HomeProps) {
             Frontend developer, Stockholm Sweden
           </Heading>
           <Text marginTop="8" width={["100%", "70%"]}>
-            I am a frontend developer with a passion for building great applications and websites. I
-            have been working in IT for more than three and half years. I work with page apps and
-            sites that are built on "React", "NextJS" and "Gatsby". I integrated "NextJS" with
-            "Contentful" in multiple projects, and "Next.js" with "Strapi CMS" as well, so I used
-            JAM stack technology, "TypeScript", and a query language for APIs - "GraphQL". For
-            design I used "Styled components", "Chakra UI". I used cloud-based service - "GitHub". I
-            I worked at the companies whch are called{" "}
+            {mainText}
             <a target="_blank" href="https://clvlab.com/">
               CLV LAB
             </a>{" "}
@@ -87,7 +81,7 @@ export default function Home(props: HomeProps) {
           marginTop="8"
           width="100%">
           {blogPosts.map((blogPost) => {
-            return <BlogPostTile key={blogPost.sys.id} blogPost={blogPost} />
+            return <BlogPostTile key={blogPost?.sys?.id} blogPost={blogPost} />
           })}
         </Grid>
       </DifaultLayout>
