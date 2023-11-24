@@ -64,14 +64,14 @@ export default function Home(props: HomeProps) {
             Frontend developer, Stockholm Sweden
           </Heading>
           <Text marginTop="8" width={["100%", "70%"]}>
-            {mainText}
+            {mainText}{" "}
             <a target="_blank" href="https://clvlab.com/">
               CLV LAB
             </a>{" "}
-            as a Frontend developer and
+            as a Frontend developer and{" "}
             <a target="_blank" href="https://www.umain.com/">
               UMAIN
-            </a>
+            </a>{" "}
             as a Web Developer.
           </Text>
         </Flex>

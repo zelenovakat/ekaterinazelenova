@@ -11,6 +11,7 @@ import {
   Box,
 } from "@chakra-ui/react"
 import useContactForm from "@/hooks/useContactForm"
+import { NextSeo } from "next-seo"
 
 type ContactPageProps = {
   children: React.ReactNode
@@ -25,16 +26,14 @@ const ContactPage = (props: ContactPageProps) => {
 
   return (
     <DifaultLayout>
+      <NextSeo
+        title={`Ekaterina Zelenova  | Contact Me`}
+        description={`Contact me using the form on this page.`}
+      />
       <Heading as="h1" marginTop="2" size="lg">
         Contact
       </Heading>
       <Flex direction="column" marginTop="8" width={["100%", "70%"]}>
-        {success && (
-          <Box backgroundColor="black" marginBottom="4" color="white" padding="4">
-            <Text>Message was send successfully</Text>
-          </Box>
-        )}
-
         <form onSubmit={submitForm}>
           <FormControl>
             <FormLabel>Your Name</FormLabel>
@@ -70,6 +69,11 @@ const ContactPage = (props: ContactPageProps) => {
             </Button>
           </FormControl>
         </form>
+        {success && (
+          <Box color="black" marginBottom="4">
+            <Text>Message was send successfully</Text>
+          </Box>
+        )}
       </Flex>
     </DifaultLayout>
   )

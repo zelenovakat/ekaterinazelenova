@@ -13,6 +13,7 @@ import {
 import client from "../utils/apollo-client"
 import NextImage from "next/image"
 import { gql } from "@apollo/client"
+import { NextSeo } from "next-seo"
 
 export type AboutPageItem = {
   someText: string
@@ -79,12 +80,15 @@ const apolloClient = client()
 
 const AboutPage = (props: AboutPageProps) => {
   const { aboutPage } = props
-  console.log(props)
   const photoCollection = aboutPage[0].photoCollection
   const faqCollection = aboutPage[0].faqCollection
 
   return (
     <DifaultLayout>
+      <NextSeo
+        title={`Ekaterina Zelenova | About Me`}
+        description={`A brief run through of my history.`}
+      />
       <Flex flexDirection="column" width={["100%", "70%"]}>
         <Heading as="h1" size="lg">
           {aboutPage[0].title}

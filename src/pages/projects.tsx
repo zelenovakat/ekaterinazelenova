@@ -47,7 +47,6 @@ const apolloClient = client()
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props
-  console.log("Hello", props)
   return (
     <DifaultLayout>
       <Heading as="h1" marginTop="2" size="lg">
