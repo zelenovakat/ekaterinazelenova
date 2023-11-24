@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react"
 import useContactForm from "@/hooks/useContactForm"
 import { NextSeo } from "next-seo"
+import { linkedInColor } from "@/utils/colors"
 
 type ContactPageProps = {
   children: React.ReactNode
@@ -37,17 +38,24 @@ const ContactPage = (props: ContactPageProps) => {
         <form onSubmit={submitForm}>
           <FormControl>
             <FormLabel>Your Name</FormLabel>
-            <Input onChange={(e) => setState({ name: e.target.value })} value={name} type="text" />
+            <Input
+              placeholder="name"
+              onChange={(e) => setState({ name: e.target.value })}
+              value={name}
+              type="text"
+            />
 
             <FormLabel marginTop="4">Your Email</FormLabel>
             <Input
               onChange={(e) => setState({ email: e.target.value })}
+              placeholder="email@address.com"
               value={email}
               type="email"
             />
 
             <FormLabel marginTop="4">Your Mobile</FormLabel>
             <Input
+              placeholder="46 00 000 00 00"
               onChange={(e) => setState({ mobile: e.target.value })}
               value={mobile}
               type="text"
@@ -60,9 +68,10 @@ const ContactPage = (props: ContactPageProps) => {
               height={120}
             />
             <Button
-              colorScheme="blue"
+              backgroundColor={linkedInColor}
               onClick={submitForm}
               type="submit"
+              color="white"
               marginTop="4"
               isLoading={loading}>
               Send Message
@@ -72,6 +81,11 @@ const ContactPage = (props: ContactPageProps) => {
         {success && (
           <Box color="black" marginBottom="4">
             <Text>Message was send successfully</Text>
+          </Box>
+        )}
+        {!success && (
+          <Box color="black" marginBottom="4">
+            <Text>Chek correctness of the email address</Text>
           </Box>
         )}
       </Flex>

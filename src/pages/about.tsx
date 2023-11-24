@@ -14,6 +14,7 @@ import client from "../utils/apollo-client"
 import NextImage from "next/image"
 import { gql } from "@apollo/client"
 import { NextSeo } from "next-seo"
+import { linkedInColor } from "@/utils/colors"
 
 export type AboutPageItem = {
   someText: string
@@ -122,7 +123,7 @@ const AboutPage = (props: AboutPageProps) => {
               marginTop="2"
               border="1px solid"
               borderRadius="5"
-              borderColor="blue">
+              borderColor={linkedInColor}>
               <h2>
                 <AccordionButton>
                   <Box
