@@ -85,12 +85,12 @@ const AboutPage = (props: AboutPageProps) => {
 
   return (
     <DifaultLayout>
-      <Flex flexDirection="column" width="70%">
-        <Heading as="h1" marginTop="2" size="lg">
+      <Flex flexDirection="column" width={["100%", "70%"]}>
+        <Heading as="h1" size="lg">
           {aboutPage[0].title}
         </Heading>
         {photoCollection.items.map((photo) => (
-          <Flex key={photo?.sys?.id}>
+          <Flex key={photo?.sys?.id} marginTop="8">
             <NextImage
               width={200}
               height={150}
@@ -108,13 +108,25 @@ const AboutPage = (props: AboutPageProps) => {
         <Flex direction="column" marginTop="8">
           <Text>{aboutPage[0].someText}</Text>
         </Flex>
-        <Heading marginTop="8"> {aboutPage[0].faqTitle} </Heading>
-        <Accordion allowToggle width="100%">
+        <Heading as="h2" marginTop="8" size="lg">
+          {aboutPage[0].faqTitle}
+        </Heading>
+        <Accordion allowToggle width="100%" marginTop="8">
           {faqCollection?.items.map((faq) => (
-            <AccordionItem key={faq?.sys?.id}>
+            <AccordionItem
+              key={faq?.sys?.id}
+              marginTop="2"
+              border="1px solid"
+              borderRadius="5"
+              borderColor="blue">
               <h2>
                 <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
+                  <Box
+                    as="span"
+                    flex="1"
+                    textAlign="left"
+                    width={["100%", "70%"]}
+                    fontWeight="bold">
                     {faq.question}
                   </Box>
                   <AccordionIcon />
