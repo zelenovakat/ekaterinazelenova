@@ -1,17 +1,6 @@
-import {
-  Button,
-  Flex,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverCloseButton,
-  PopoverContent,
-  PopoverHeader,
-  PopoverTrigger,
-} from "@chakra-ui/react"
-import { SocialIcon } from "react-social-icons"
+import { Flex } from "@chakra-ui/react"
 import NavLinks from "../NavLinks"
-import { PhoneIcon } from "@chakra-ui/icons"
+import Connection from "../Popover"
 
 const SideBar = () => {
   return (
@@ -24,28 +13,7 @@ const SideBar = () => {
       position="fixed"
       display={["none", "flex"]}>
       <NavLinks />
-      <Flex padding={["4", "8"]} justifyContent="space-between">
-        <SocialIcon target="_blank" url="https://linkedin.com/in/ekaterina-zelenova-4042671b6/" />
-        <Popover>
-          <PopoverTrigger>
-            <Button
-              color="white"
-              backgroundColor="#2D7FB2"
-              borderRadius="50px"
-              padding="26px"
-              width="50px"
-              height="50px">
-              <PhoneIcon />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent backgroundColor="#2D7FB2" width="200px">
-            <PopoverArrow />
-            <PopoverCloseButton />
-            <PopoverHeader>My nuber is</PopoverHeader>
-            <PopoverBody>+46762840503</PopoverBody>
-          </PopoverContent>
-        </Popover>
-      </Flex>
+      <Connection />
     </Flex>
   )
 }

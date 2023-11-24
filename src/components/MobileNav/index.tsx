@@ -7,6 +7,7 @@ import {
   DrawerBody,
 } from "@chakra-ui/react"
 import NavLinks from "../NavLinks"
+import Connection from "../Popover"
 
 type MobileNavProps = {
   isOpen: boolean
@@ -22,6 +23,7 @@ const MobileNav = (props: MobileNavProps) => {
         <DrawerHeader>
           <DrawerBody>
             <NavLinks />
+            <Connection />
           </DrawerBody>
         </DrawerHeader>
       </DrawerContent>
