@@ -47,6 +47,7 @@ const apolloClient = client()
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props
+
   return (
     <DifaultLayout>
       <Heading as="h1" marginTop="2" size="lg">
@@ -54,7 +55,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
       </Heading>
       <Flex direction="column" marginTop="8">
         {projects.map((project) => (
-          <ProjectTile key={project?.sys?.id} project={project} />
+          <ProjectTile key={project.sys?.id} project={project} />
         ))}
       </Flex>
     </DifaultLayout>

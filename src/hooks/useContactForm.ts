@@ -51,6 +51,12 @@ const submitForm = async (params: submitFormParams) => {
 function useContactForm() {
   const [state, setState] = useState(defaultState)
   const { name, email, mobile, message } = state
+
+  const resetForm = () => {
+    setState(defaultState)
+  }
+  console.log("resetForm", resetForm)
+
   return {
     callbacks: {
       setState: (params: Partial<typeof defaultState>) =>
@@ -60,7 +66,7 @@ function useContactForm() {
         }),
       submitForm: (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        submitForm({ data: { email, message, mobile, name }, setState })
+        submitForm({ data: { email, message, mobile, name }, setState }), resetForm()
       },
     },
     state,

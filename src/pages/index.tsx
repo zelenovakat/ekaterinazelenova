@@ -81,7 +81,7 @@ export default function Home(props: HomeProps) {
           marginTop="8"
           width="100%">
           {blogPosts.map((blogPost) => {
-            return <BlogPostTile key={blogPost?.sys?.id} blogPost={blogPost} />
+            return <BlogPostTile key={blogPost.sys?.id} blogPost={blogPost} />
           })}
         </Grid>
       </DifaultLayout>

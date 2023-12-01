@@ -3,10 +3,7 @@ import client from "@/utils/apollo-client"
 import { gql } from "@apollo/client"
 import type { GetServerSidePropsContext } from "next"
 import ReactMarkdown from "react-markdown"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Heading, Box } from "@chakra-ui/react"
-import { useRef } from "react"
 import { NextSeo } from "next-seo"
 
 type BlogPost = {
@@ -47,8 +44,6 @@ function PostPage(props: PostProps) {
     blogPost: { content, mainImage, summary, sys, title },
   } = props
 
-  const highlighterRef = useRef<SyntaxHighlighter>(null)
-
   return (
     <DifaultLayout>
       <NextSeo
@@ -69,23 +64,7 @@ function PostPage(props: PostProps) {
       />
       <Heading as="h1">{title}</Heading>
       <Box marginTop="8" whiteSpace="pre-wrap">
-        <ReactMarkdown
-          components={{
-            code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || "")
-              return !inline && match ? (
-                <SyntaxHighlighter {...props} style={tomorrow} language={match[1]} PreTag="div">
-                  {String(children).replace(/\n$/, "")}
-                </SyntaxHighlighter>
-              ) : (
-                <code {...props} className={className}>
-                  {children}
-                </code>
-              )
-            },
-          }}>
-          {content}
-        </ReactMarkdown>
+        <ReactMarkdown>{content}</ReactMarkdown>
       </Box>
     </DifaultLayout>
   )
