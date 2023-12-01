@@ -55,7 +55,6 @@ function useContactForm() {
   const resetForm = () => {
     setState(defaultState)
   }
-  console.log("resetForm", resetForm)
 
   return {
     callbacks: {
