@@ -3,15 +3,15 @@ import DifaultLayout from "@/layout/DefaultLayout"
 import client from "@/utils/apollo-client"
 import { gql } from "@apollo/client"
 import { GetServerSidePropsContext } from "next"
-import { BlogPost } from "@/pages/index"
+import { JobList } from "@/pages/index"
 import { useRouter } from "next/router"
 import NextLink from "next/link"
 import { Grid, Heading, Link } from "@chakra-ui/react"
-import BlogPostTile from "@/components/BlogPostTile"
+import JobListTile from "@/components/JobListTile"
 
-const SEARCH_BLOG_POSTS_QUERY = gql`
-  query SearchBlogPosts($string: String!) {
-    blogPostCollection(where: { OR: { title_contains: $string, content_contains: $string } }) {
+const SEARCH_JOB_LISTS_QUERY = gql`
+  query SearchJobLists($string: String!) {
+    jobListCollection(where: { OR: { title_contains: $string, content_contains: $string } }) {
       items {
         content
         mainImage {
@@ -27,12 +27,12 @@ const SEARCH_BLOG_POSTS_QUERY = gql`
   }
 `
 type SearchPageProps = {
-  blogPosts: BlogPost[]
+  jobLists: JobList[]
 }
 
 const apolloClient = client()
 const SearchPage = (props: SearchPageProps) => {
-  const { blogPosts } = props
+  const { jobLists } = props
   const {
     query: { string },
   } = useRouter()
@@ -43,7 +43,7 @@ const SearchPage = (props: SearchPageProps) => {
         Result for {string}
       </Heading>
       <>
-        {!blogPosts.length && (
+        {!jobLists.length && (
           <Heading marginTop="4" size="md">
             Sorry, no results found. Please try searching something else.
           </Heading>
@@ -53,8 +53,8 @@ const SearchPage = (props: SearchPageProps) => {
         </Link>
       </>
       <Grid templateColumns="repeat(2, 1fr)" gap={6} marginTop="8" width="100%">
-        {blogPosts.map((blogPost) => {
-          return <BlogPostTile key={blogPost?.sys?.id} blogPost={blogPost} />
+        {jobLists.map((jobList) => {
+          return <JobListTile key={jobList?.sys?.id} jobList={jobList} />
         })}
       </Grid>
     </DifaultLayout>
@@ -66,7 +66,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     query: { string },
   } = context
   const { data } = await apolloClient.query({
-    query: SEARCH_BLOG_POSTS_QUERY,
+    query: SEARCH_JOB_LISTS_QUERY,
     variables: {
       string,
     },
@@ -74,7 +74,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      blogPosts: data.blogPostCollection?.items || [],
+      jobLists: data.jobListCollection?.items || [],
     },
   }
 }

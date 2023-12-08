@@ -4,10 +4,10 @@ import { Flex, Heading, Text, Grid } from "@chakra-ui/react"
 import DifaultLayout from "@/layout/DefaultLayout"
 import client from "../utils/apollo-client"
 import { gql } from "@apollo/client"
-import BlogPostTile from "@/components/BlogPostTile"
+import JobListTile from "@/components/JobListTile"
 import { mainText } from "@/components/string"
 
-export type BlogPost = {
+export type JobList = {
   content: string
   mainImage: {
     url: string
@@ -19,9 +19,9 @@ export type BlogPost = {
   }
 }
 
-const GET_BLOG_POSTS = gql`
-  query GetBlogPosts {
-    blogPostCollection(limit: 16) {
+const GET_JOB_LIST = gql`
+  query GetJobList {
+    jobListCollection(limit: 16) {
       items {
         content
         title
@@ -39,10 +39,10 @@ const GET_BLOG_POSTS = gql`
 const apolloClient = client()
 
 type HomeProps = {
-  blogPosts: BlogPost[]
+  jobLists: JobList[]
 }
 export default function Home(props: HomeProps) {
-  const { blogPosts } = props
+  const { jobLists } = props
 
   return (
     <>
@@ -80,8 +80,9 @@ export default function Home(props: HomeProps) {
           gap={6}
           marginTop="8"
           width="100%">
-          {blogPosts.map((blogPost) => {
-            return <BlogPostTile key={blogPost.sys?.id} blogPost={blogPost} />
+          {jobLists?.map((jobList) => {
+            console.log(jobList)
+            return <JobListTile key={jobList?.sys?.id} jobList={jobList} />
           })}
         </Grid>
       </DifaultLayout>
@@ -91,12 +92,12 @@ export default function Home(props: HomeProps) {
 
 export async function getServerSideProps() {
   const { data } = await apolloClient.query({
-    query: GET_BLOG_POSTS,
+    query: GET_JOB_LIST,
   })
 
   return {
     props: {
-      blogPosts: data?.blogPostCollection?.items || [],
+      jobLists: data?.jobListCollection?.items || [],
     },
   }
 }

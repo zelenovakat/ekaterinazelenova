@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown"
 import { Heading, Box } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
 
-type BlogPost = {
+type JobList = {
   title: string
   content: string
   summary: string
@@ -18,11 +18,11 @@ type BlogPost = {
   }
 }
 
-type PostProps = {
-  blogPost: BlogPost
+type JobProps = {
+  jobList: JobList
 }
 
-const GET_POST_BY_ID_QUERY = gql`
+const GET_JOB_BY_ID_QUERY = gql`
   query GetPostById($id: String!) {
     blogPost(id: $id) {
       title
@@ -39,9 +39,9 @@ const GET_POST_BY_ID_QUERY = gql`
 `
 const apolloClient = client()
 
-function PostPage(props: PostProps) {
+function JobPage(props: JobProps) {
   const {
-    blogPost: { content, mainImage, summary, sys, title },
+    jobList: { content, mainImage, summary, sys, title },
   } = props
 
   return (
@@ -75,7 +75,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     query: { id },
   } = context
   const { data } = await apolloClient.query({
-    query: GET_POST_BY_ID_QUERY,
+    query: GET_JOB_BY_ID_QUERY,
     variables: {
       id,
     },
@@ -84,9 +84,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Return the data as props
   return {
     props: {
-      blogPost: data.blogPost || {},
+      jobList: data.jobList || {},
     },
   }
 }
 
-export default PostPage
+export default JobPage

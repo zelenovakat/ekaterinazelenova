@@ -95,14 +95,14 @@ const AboutPage = (props: AboutPageProps) => {
           {aboutPage[0].title}
         </Heading>
         {photoCollection.items.map((photo) => (
-          <Flex key={photo?.sys?.id} marginTop="8">
+          <Flex key={photo?.sys?.id} marginTop="8" width={190} height={250} position="relative">
             <NextImage
-              width={200}
-              height={150}
+              fill
+              style={{ objectPosition: "center center" }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               src={photo.url}
               alt={`Photo ${photo?.sys?.id + 1}`}
               priority={false}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </Flex>
         ))}

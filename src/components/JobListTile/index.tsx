@@ -1,16 +1,18 @@
 import React from "react"
 import { Flex, Heading, Text, GridItem, Link } from "@chakra-ui/react"
-import type { BlogPost } from "@/pages"
+import type { JobList } from "@/pages"
 import Image from "next/image"
 import NextLink from "next/link"
 
-type BlogPostTileProps = {
-  blogPost: BlogPost
+type JobListTileProps = {
+  jobList: JobList
 }
 
-const BlogPostTile = (props: BlogPostTileProps) => {
+const JobListTile = (props: JobListTileProps) => {
+  console.log(props)
+
   const {
-    blogPost: { title, summary, mainImage, sys },
+    jobList: { title, summary, mainImage, sys },
   } = props
   return (
     <GridItem width="100%" overflow="clip" position="relative">
@@ -48,4 +50,4 @@ const BlogPostTile = (props: BlogPostTileProps) => {
   )
 }
 
-export default BlogPostTile
+export default JobListTile
