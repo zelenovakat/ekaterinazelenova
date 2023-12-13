@@ -42,7 +42,7 @@ const JobListTile = (props: JobListTileProps) => {
         minHeight="250px">
         <Heading size="md">{title}</Heading>
         <Text marginTop="4">{summary}</Text>
-        <Link as={NextLink} href={`/posts/${sys.id}`} marginTop="auto" fontWeight="bold">
+        <Link as={NextLink} href={`/jobs/${sys.id}`} marginTop="auto" fontWeight="bold">
           Read More
         </Link>
       </Flex>

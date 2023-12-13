@@ -23,8 +23,8 @@ type JobProps = {
 }
 
 const GET_JOB_BY_ID_QUERY = gql`
-  query GetPostById($id: String!) {
-    blogPost(id: $id) {
+  query GetJobById($id: String!) {
+    jobList(id: $id) {
       title
       summary
       content
@@ -59,7 +59,7 @@ function JobPage(props: JobProps) {
           ],
           title: title,
           type: "website",
-          url: `https://www.ekaterinazelenova.com/posts/${sys?.id}`,
+          url: `https://www.ekaterinazelenova.com/jobs/${sys?.id}`,
         }}
       />
       <Heading as="h1">{title}</Heading>

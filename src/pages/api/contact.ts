@@ -15,9 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (!email || !message || !name || !mobile) {
     res.status(400).json({
       success: false,
-      errors: [
-        "Message was not sent. Missing required field. Please check the correctness of your email",
-      ],
+      errors: ["Missing required field. Please check that the fields are filled in correctly."],
     })
     return
   }

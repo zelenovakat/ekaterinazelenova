@@ -24,6 +24,7 @@ const ContactPage = (props: ContactPageProps) => {
     callbacks: { setState, submitForm },
     state: { message, mobile, email, name, loading, success },
   } = contactFormPayLoad
+  console.log("HI", success)
 
   return (
     <DifaultLayout>
@@ -74,7 +75,7 @@ const ContactPage = (props: ContactPageProps) => {
               color="white"
               marginTop="4"
               isLoading={loading}>
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </Button>
           </FormControl>
         </form>
