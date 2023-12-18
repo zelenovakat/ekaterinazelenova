@@ -19,6 +19,8 @@ interface submitFormParams {
 const submitForm = async (params: submitFormParams) => {
   const { data, setState, onError } = params
 
+  console.log("Submitting form with data:", data)
+
   setState((prevState) => ({ ...prevState, loading: true, success: false }))
 
   try {
@@ -31,9 +33,11 @@ const submitForm = async (params: submitFormParams) => {
     })
 
     const body = await response.json()
+    console.log("API Response:", body)
 
     if (!response.ok) {
       const { errors } = body
+      console.log("API Response error:", body)
       setState((prevState) => ({
         ...prevState,
         loading: false,
@@ -52,6 +56,7 @@ const submitForm = async (params: submitFormParams) => {
   } catch (error: any) {
     console.error("Error submitting form:", error)
     onError(error.message || "An error occurred while submitting the form.")
+    throw error
   }
 }
 
@@ -64,10 +69,7 @@ function useContactForm() {
     router.push({
       pathname: "/success",
     })
-    setState((prevState) => ({
-      ...defaultState,
-      success: prevState.success, // save the success state
-    }))
+    setState(defaultState)
   }
 
   const handleApiError = (errorMessage: string) => {
@@ -85,12 +87,14 @@ function useContactForm() {
         setState((prevState) => ({ ...prevState, ...params })),
       submitForm: async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        await submitForm({
-          data: { email, message, mobile, name },
-          onError: handleApiError,
-          setState,
-        })
-        resetForm()
+        try {
+          await submitForm({
+            data: { email, message, mobile, name },
+            onError: handleApiError,
+            setState,
+          })
+          resetForm() // Reset the form only if the API call is successful
+        } catch (error) {}
       },
     },
     state,
