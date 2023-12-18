@@ -37,7 +37,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       text: message,
     })
   } catch (error: any) {
-    return res.status(error.statusCode || 400).json({ success: false, errors: [error.message] })
+    const errorMessage = error.message || "An error occurred while processing the form."
+    const statusCode = error.statusCode || 500
+    return res.status(statusCode || 400).json({ success: false, errors: [errorMessage] })
   }
   res.status(200).json({ success: true })
 }

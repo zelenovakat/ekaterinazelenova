@@ -9,8 +9,6 @@ type JobListTileProps = {
 }
 
 const JobListTile = (props: JobListTileProps) => {
-  console.log(props)
-
   const {
     jobList: { title, summary, mainImage, sys },
   } = props

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import { useRouter } from "next/router"
 
 const defaultState = {
@@ -61,6 +61,9 @@ function useContactForm() {
   const router = useRouter()
 
   const resetForm = () => {
+    router.push({
+      pathname: "/success",
+    })
     setState((prevState) => ({
       ...defaultState,
       success: prevState.success, // save the success state
@@ -84,8 +87,8 @@ function useContactForm() {
         e.preventDefault()
         await submitForm({
           data: { email, message, mobile, name },
-          setState,
           onError: handleApiError,
+          setState,
         })
         resetForm()
       },
