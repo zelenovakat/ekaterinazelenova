@@ -80,8 +80,10 @@ export default function Home(props: HomeProps) {
           gap={6}
           marginTop="8"
           width="100%">
-          {jobLists?.map((jobList) => {
-            return <JobListTile key={jobList?.sys?.id} jobList={jobList} />
+          {jobLists?.map((jobList, index) => {
+            console.log("MAP", jobList)
+
+            return <JobListTile key={jobList?.sys?.id || index} jobList={jobList} />
           })}
         </Grid>
       </DifaultLayout>

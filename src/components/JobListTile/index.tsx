@@ -12,6 +12,7 @@ const JobListTile = (props: JobListTileProps) => {
   const {
     jobList: { title, summary, mainImage, sys },
   } = props
+
   return (
     <GridItem width="100%" overflow="clip" position="relative">
       <Flex

@@ -18,14 +18,14 @@ const ProjectTile = (props: ProjectTileProps) => {
       flexDirection={["column", "row"]}
       marginBottom="8"
       paddingBottom="8"
-      width={["100%", "70%"]}>
+      width={["100%", "80%"]}>
       <Flex
         background="white"
         flexShrink="0"
-        height={180}
+        height={[200, "100%"]}
         marginBottom="8"
         position="relative"
-        width={["100%", 320]}
+        width={["100%", 400]}
         border="1px solid"
         borderColor="gray.300">
         <NextImage
@@ -34,7 +34,8 @@ const ProjectTile = (props: ProjectTileProps) => {
           priority={false}
           fill
           style={{ objectPosition: "center center" }}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          object-fit="cover"
+          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </Flex>
       <Flex direction="column" marginLeft="4">
