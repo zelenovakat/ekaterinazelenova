@@ -10,6 +10,7 @@ import {
   AccordionPanel,
   Box,
 } from "@chakra-ui/react"
+import ReactMarkdown from "react-markdown"
 import client from "../utils/apollo-client"
 import NextImage from "next/image"
 import { gql } from "@apollo/client"
@@ -108,11 +109,12 @@ const AboutPage = (props: AboutPageProps) => {
         ))}
 
         <Flex direction="column" marginTop="8">
-          <Text>{aboutPage[0].content}</Text>
+          <ReactMarkdown>{aboutPage[0].content}</ReactMarkdown>
         </Flex>
         <Flex direction="column" marginTop="8">
           <Text>{aboutPage[0].someText}</Text>
         </Flex>
+
         <Heading as="h2" marginTop="8" size="lg">
           {aboutPage[0].faqTitle}
         </Heading>

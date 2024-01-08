@@ -31,9 +31,9 @@ type SearchPageProps = {
 }
 
 const apolloClient = client()
+
 const SearchPage = (props: SearchPageProps) => {
   const { jobLists } = props
-
   const {
     query: { string },
   } = useRouter()
