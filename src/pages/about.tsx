@@ -91,7 +91,7 @@ const AboutPage = (props: AboutPageProps) => {
         title={`Ekaterina Zelenova | About Me`}
         description={`A brief run through of my history.`}
       />
-      <Flex flexDirection="column" width={["100%", "70%"]}>
+      <Flex flexDirection="column" width={["100%", "80%"]}>
         <Heading as="h1" size="lg">
           {aboutPage[0].title}
         </Heading>
@@ -132,7 +132,7 @@ const AboutPage = (props: AboutPageProps) => {
                     as="span"
                     flex="1"
                     textAlign="left"
-                    width={["100%", "70%"]}
+                    width={["100%", "80%"]}
                     fontWeight="bold">
                     {faq.question}
                   </Box>

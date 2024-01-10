@@ -63,7 +63,7 @@ export default function Home(props: HomeProps) {
           <Heading marginTop="2" size="lg">
             Frontend developer, Stockholm Sweden
           </Heading>
-          <Text marginTop="8" width={["100%", "70%"]}>
+          <Text marginTop="8" width={["100%", "80%"]}>
             {mainText}{" "}
             <a target="_blank" href="https://clvlab.com/">
               CLV LAB

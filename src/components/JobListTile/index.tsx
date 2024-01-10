@@ -23,10 +23,10 @@ const JobListTile = (props: JobListTileProps) => {
         borderTopRightRadius="5">
         <Image
           src={mainImage?.url}
-          fill
+          fill={true}
           alt={title}
           style={{ objectFit: "cover" }}
-          priority={false}
+          priority={true}
         />
       </Flex>
 

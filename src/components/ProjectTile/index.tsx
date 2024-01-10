@@ -15,32 +15,26 @@ const ProjectTile = (props: ProjectTileProps) => {
     <Flex
       borderBottom="1px dashed"
       borderColor="gray.100"
-      flexDirection={["column", "row"]}
+      flexDirection={{ base: "column", md: "column", lg: "row" }}
       marginBottom="8"
       paddingBottom="8"
-      width={["100%", "80%"]}>
+      width={{ base: "100%", md: "80%", lg: "100%", xl: "80%" }}>
       <Flex
         background="white"
         flexShrink="0"
-        height={[200, "100%"]}
+        height={{ base: 200, md: 200, lg: "100%" }}
         marginBottom="8"
         position="relative"
-        width={["100%", 400]}
+        width={{ base: "100%", md: "100%", lg: 400 }}
         border="1px solid"
         borderColor="gray.300">
-        <NextImage
-          src={mainImage?.url}
-          alt={title}
-          priority={false}
-          fill
-          style={{ objectPosition: "center center" }}
-          object-fit="cover"
-          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        <NextImage src={mainImage?.url} alt={title} priority={false} fill object-fit="cover" />
       </Flex>
-      <Flex direction="column" marginLeft="4">
+      <Flex direction="column" marginLeft={{ base: "0", md: "0", lg: "4" }}>
         <Heading size="md"> {title}</Heading>
-        <Text marginTop="4">{description}</Text>
+        <Text marginTop="4" fontSize="sm">
+          {description}
+        </Text>
         {!!projectUrl && (
           <Link as={NextLink} fontWeight="bold" href={projectUrl} target="_blank" marginTop="4">
             {projectUrl}

@@ -3,7 +3,7 @@ import client from "@/utils/apollo-client"
 import { gql } from "@apollo/client"
 import type { GetServerSidePropsContext } from "next"
 import ReactMarkdown from "react-markdown"
-import { Heading, Box } from "@chakra-ui/react"
+import { Heading, Box, Flex } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
 
 type JobList = {
@@ -45,28 +45,30 @@ function JobPage(props: JobProps) {
   } = props
 
   return (
-    <DifaultLayout>
-      <NextSeo
-        title={`Ekaterina Zelenova | ${title}`}
-        description={summary}
-        openGraph={{
-          description: summary,
-          images: [
-            {
-              url: mainImage?.url,
-              alt: `Main Image for ${title}`,
-            },
-          ],
-          title: title,
-          type: "website",
-          url: `https://www.ekaterinazelenova.com/jobs/${sys?.id}`,
-        }}
-      />
-      <Heading as="h1">{title}</Heading>
-      <Box marginTop="8" whiteSpace="pre-wrap">
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </Box>
-    </DifaultLayout>
+    <Flex width={{ base: "100%", xl: "80%" }}>
+      <DifaultLayout>
+        <NextSeo
+          title={`Ekaterina Zelenova | ${title}`}
+          description={summary}
+          openGraph={{
+            description: summary,
+            images: [
+              {
+                url: mainImage?.url,
+                alt: `Main Image for ${title}`,
+              },
+            ],
+            title: title,
+            type: "website",
+            url: `https://www.ekaterinazelenova.com/jobs/${sys?.id}`,
+          }}
+        />
+        <Heading as="h1">{title}</Heading>
+        <Box marginTop="8" whiteSpace="pre-wrap">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </Box>
+      </DifaultLayout>
+    </Flex>
   )
 }
 

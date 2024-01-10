@@ -28,7 +28,7 @@ const ContactPage = (props: ContactPageProps) => {
       <Heading as="h1" marginTop="2" size="lg">
         Contact
       </Heading>
-      <Flex direction="column" marginTop="8" width={["100%", "70%"]}>
+      <Flex direction="column" marginTop="8" width={["100%", "80%"]}>
         <form onSubmit={submitForm}>
           <FormControl>
             {createFormLabel("Your Name")}
