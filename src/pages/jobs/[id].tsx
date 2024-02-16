@@ -2,9 +2,9 @@ import DifaultLayout from "@/layout/DefaultLayout"
 import client from "@/utils/apollo-client"
 import { gql } from "@apollo/client"
 import type { GetServerSidePropsContext } from "next"
-import ReactMarkdown from "react-markdown"
 import { Heading, Box, Flex } from "@chakra-ui/react"
 import { NextSeo } from "next-seo"
+import Markdown from "@/components/Markdown"
 
 type JobList = {
   title: string
@@ -65,7 +65,7 @@ function JobPage(props: JobProps) {
         />
         <Heading as="h1">{title}</Heading>
         <Box marginTop="8" whiteSpace="pre-wrap">
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <Markdown>{content}</Markdown>
         </Box>
       </DifaultLayout>
     </Flex>

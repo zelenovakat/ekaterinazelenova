@@ -16,14 +16,14 @@ const JobListTile = (props: JobListTileProps) => {
   return (
     <GridItem width="100%" overflow="clip" position="relative">
       <Flex
-        minHeight="315px"
+        minHeight="330px"
         overflow="clip"
         position="relative"
         borderTopLeftRadius="5"
         borderTopRightRadius="5">
         <Image
           src={mainImage?.url}
-          fill={true}
+          fill
           alt={title}
           style={{ objectFit: "cover" }}
           priority={true}
@@ -37,7 +37,7 @@ const JobListTile = (props: JobListTileProps) => {
         borderColor="gray.100"
         borderBottomLeftRadius="5"
         borderBottomRightRadius="5"
-        minHeight="250px">
+        minHeight="295px">
         <Heading size="md">{title}</Heading>
         <Text marginTop="4">{summary}</Text>
         <Link as={NextLink} href={`/jobs/${sys.id}`} marginTop="auto" fontWeight="bold">
