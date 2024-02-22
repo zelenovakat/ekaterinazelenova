@@ -128,7 +128,7 @@ const AboutPage = (props: AboutPageProps) => {
             <ReactMarkdown>{aboutPage[0].content4}</ReactMarkdown>
           </Flex>
         </Flex>
-        <Flex direction="column">
+        <Flex direction="column" marginTop="8">
           <Text>{aboutPage[0].someText}</Text>
         </Flex>
 
