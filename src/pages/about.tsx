@@ -54,6 +54,7 @@ const ABOUT_PAGE_QUERY = gql`
         content
         content2
         content3
+        content4
         photoCollection(limit: 3) {
           items {
             url
