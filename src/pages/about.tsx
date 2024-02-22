@@ -21,6 +21,9 @@ export type AboutPageItem = {
   someText: string
   title: string
   content: string
+  content2: string
+  content3: string
+  content4: string
   faqTitle: string
   photoCollection: {
     items: {
@@ -49,6 +52,8 @@ const ABOUT_PAGE_QUERY = gql`
     aboutCollection {
       items {
         content
+        content2
+        content3
         photoCollection(limit: 3) {
           items {
             url
@@ -108,10 +113,21 @@ const AboutPage = (props: AboutPageProps) => {
           </Flex>
         ))}
 
-        <Flex direction="column" marginTop="8">
-          <ReactMarkdown>{aboutPage[0].content}</ReactMarkdown>
+        <Flex direction="column">
+          <Flex direction="column" marginTop="8">
+            <ReactMarkdown>{aboutPage[0].content}</ReactMarkdown>
+          </Flex>
+          <Flex direction="column" marginTop="8">
+            <ReactMarkdown>{aboutPage[0].content2}</ReactMarkdown>
+          </Flex>
+          <Flex direction="column" marginTop="8">
+            <ReactMarkdown>{aboutPage[0].content3}</ReactMarkdown>
+          </Flex>
+          <Flex direction="column" marginTop="8">
+            <ReactMarkdown>{aboutPage[0].content4}</ReactMarkdown>
+          </Flex>
         </Flex>
-        <Flex direction="column" marginTop="8">
+        <Flex direction="column">
           <Text>{aboutPage[0].someText}</Text>
         </Flex>
 

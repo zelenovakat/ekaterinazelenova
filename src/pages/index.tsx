@@ -53,7 +53,7 @@ export default function Home(props: HomeProps) {
           content="frontend developer with a passion for building great applications and websites"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1 " />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" type="image/png" />
       </Head>
       <DifaultLayout>
         <Flex borderBottom="1px solid" borderColor="gray.100" direction="column" paddingBottom="12">
