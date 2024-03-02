@@ -28,8 +28,6 @@ const GET_JOB_BY_ID_QUERY = gql`
       title
       summary
       content
-      content2
-      content3
       sys {
         id
       }
