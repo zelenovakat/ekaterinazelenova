@@ -13,6 +13,7 @@ const ProjectTile = (props: ProjectTileProps) => {
   } = props
   return (
     <Flex
+      className="fadeInLeft-animation"
       borderBottom="1px dashed"
       borderColor="gray.100"
       flexDirection={{ base: "column", md: "column", lg: "row" }}

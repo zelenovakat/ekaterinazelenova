@@ -1,4 +1,5 @@
 import React from "react"
+import styles from "../../styles/page.module.css"
 import { Flex, Heading, Text, GridItem, Link } from "@chakra-ui/react"
 import type { JobList } from "@/pages"
 import Image from "next/image"
@@ -14,7 +15,7 @@ const JobListTile = (props: JobListTileProps) => {
   } = props
 
   return (
-    <GridItem width="100%" overflow="clip" position="relative">
+    <GridItem width="100%" overflow="clip" position="relative" className="fadeInUp-animation">
       <Flex
         minHeight="330px"
         overflow="clip"
